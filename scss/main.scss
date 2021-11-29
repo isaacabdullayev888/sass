@@ -1,4 +1,4 @@
-@import "partials/variables", "partials/mixins";
+@import "partials/functions", "partials/variables", "partials/mixins";
 
 @include google-font("Alegreya+Sans");
 @include google-font("Titillium+Web");
@@ -9,6 +9,7 @@
 body {
   font-family: sans-serif;
   color: $text-color;
+  font-size: em(18px);
 
   @include large-screens {
     font-size: 125%;
@@ -60,7 +61,13 @@ a {
     a{
       color:  $menu-item-color;
       padding: 6px 8px;
-    }
+      border-bottom: 1px solid transparentize($color: #fefefe, $amount: 1);
+      transition: border-bottom 0.5s;
+      transition-timing-function: ease-in-out;
+      &:hover { 
+        border-bottom: 1px solid opacify(#fefefe, .5);
+      } 
+    }  
   }
   
   #logo {
@@ -78,11 +85,21 @@ a {
   margin: 0 auto;
 
   #content {
-
+    float: left;
+    width: 6*$col;
   }
    
   #sidebar {
+    float: right;
+    width: 2*$col;
 
+    li {
+      list-style: none;
+      padding: em(16px) em(20px);
+      &:hover {
+        background-color: #efefef;
+      }
+    }
   }
 }
 
