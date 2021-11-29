@@ -1,0 +1,92 @@
+@import "partials/variables", "partials/mixins";
+
+@include google-font("Alegreya+Sans");
+@include google-font("Titillium+Web");
+
+
+@include fancy-links;
+
+body {
+  font-family: sans-serif;
+  color: $text-color;
+
+  @include large-screens {
+    font-size: 125%;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: $headline-font;
+}
+
+h2 {
+  @include large-text;
+}
+
+p {
+  font-family: $text-font;
+}
+ 
+a {
+  color: $link-color;
+
+  &:hover {
+    color: darken($link-color, 15%);
+  }
+}
+
+.warning-button {
+  @include warning;
+  padding: 8px 12px;
+} 
+
+@include apply-to-ie-6 {
+  body {
+    font-size:125%;
+  }
+}
+
+#header { 
+  @include box($border:1px solid red, $radius:12px);
+  @include box-shadow(2px 0px 4px #999, 1px 1px 6px $secondary-color);
+  height: $header-height;
+  background-color: $theme-color;
+  #main-menu {
+    width: $content-width;
+
+    li{
+      display: inline;
+    }
+    a{
+      color:  $menu-item-color;
+      padding: 6px 8px;
+    }
+  }
+  
+  #logo {
+ 
+  }
+}
+
+#main {
+  width: $content-width;
+  @include large-screens {
+    width: auto;
+    max-width: $content-width;
+  }
+
+  margin: 0 auto;
+
+  #content {
+
+  }
+   
+  #sidebar {
+
+  }
+}
+
+#footer {
+  height: $footer-height;
+  background-color: $ternary-color;
+}
